@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from './ui/button';
+import { Button } from "./ui/button";
 
 const HeroSection = () => {
-    const imageRef = useRef(null);
+  const imageRef = useRef(null);
 
-    useEffect(() => {
+  useEffect(() => {
     const imageElement = imageRef.current;
 
     const handleScroll = () => {
@@ -46,11 +46,19 @@ const HeroSection = () => {
               Get Started
             </Button>
           </Link>
-          <Link href="https://www.youtube.com/roadsidecoder">
-            <Button size="lg" variant="outline" className="px-8">
-              Watch Demo
-            </Button>
-          </Link>
+          <Button
+            size="lg"
+            variant="outline"
+            className="px-8"
+            onClick={() => {
+              window.scrollBy({
+                top: window.innerHeight * 0.9,
+                behavior: "smooth",
+              });
+            }}
+          >
+            Learn More
+          </Button>
         </div>
         <div className="hero-image-wrapper mt-5 md:mt-0">
           <div ref={imageRef} className="hero-image">
@@ -66,9 +74,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
-    
   );
+};
 
-}
-
-export default HeroSection
+export default HeroSection;
